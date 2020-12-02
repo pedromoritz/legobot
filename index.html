@@ -9,26 +9,37 @@
 
 <body>
     <br>
-    <button type="button" id="motores-frente">Motores Frente</button>
-<br>
-<br>
-    <button type="button" id="motores-re">Motores Ré</button>  
-<br>
-<br>
-    <button type="button" id="desliga-motores">Desliga Motores</button>
-<br>
-<br>
-    <button type="button" id="motor-esquerdo-frente">Motor Esquerdo Frente</button>
-    <button type="button" id="motor-direito-frente">Motor Direito Frente</button> 
-    <br> 
-    <br>
-    <button type="button" id="motor-esquerdo-re">Motor Esquerdo Ré</button>
-    <button type="button" id="motor-direito-re">Motor Direito Ré</button>  
+    <button type="button" id="motorsFront">Motores Frente</button>
     <br>
     <br>
-    <button type="button" id="desliga-motor-esquerdo">Desliga Motor Esquerdo</button>
-    <button type="button" id="desliga-motor-direito">Desliga Motor Direito</button>  
+    <button type="button" id="motorsRear">Motores Ré</button>
+    <br>
+    <br>
+    <button type="button" id="motorsDisable">Desliga Motores</button>
+    <br>
+    <script>
+        let motorsFront = document.getElementById('motorsFront');
+        motorsFront.addEventListener("click", function(event){
+            doGet('/motorsFront');
+        });
 
+        let motorsRear = document.getElementById('motorsRear');
+        motorsRear.addEventListener("click", function(event){
+            doGet('/motorsRear');
+        });
 
-    <script src="scripts/main.js" type="text/javascript"></script>
+        let motorsDisable = document.getElementById('motorsDisable');
+        motorsDisable.addEventListener("click", function(event){
+            doGet('/motorsDisable');
+        });
+
+        function doGet(url) {
+            console.log('doGet');
+            var request = new XMLHttpRequest();
+            request.open('GET', url, true);
+            request.send();
+        }
+    </script>
 </body>
+
+</html>
