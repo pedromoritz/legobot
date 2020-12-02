@@ -6,6 +6,7 @@
   "author": "Pedro Moritz de Carvalho Neto",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "rpio": "^2.2.0"
   }
 }
