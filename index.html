@@ -22,39 +22,80 @@
     <br>
     <button type="button" id="motorLeftFront">Motor Esquerda Frente</button>
     <button type="button" id="motorRightFront">Motor Direita Frente</button>
-
+    <br>
+    <br>
+    <button type="button" id="motorLeftDisable">Desliga Motor Esquerda</button>
+    <button type="button" id="motorRightDisable">Desliga Motor Direita</button>
+    <br>
+    <br>
+    <button type="button" id="motorLeftRear">Motor Esquerda Ré</button>
+    <button type="button" id="motorRightRear">Motor Direita Ré</button>
     <script>
-        let motorsFront = document.getElementById('motorsFront');
-        motorsFront.addEventListener("click", function(event){
-            doGet('/motorsFront');
-        });
+    let motorsFront = document.getElementById('motorsFront');
+    motorsFront.addEventListener("click", function(event) {
+        doGet('/motorsFront');
+    });
 
-        let motorsRear = document.getElementById('motorsRear');
-        motorsRear.addEventListener("click", function(event){
-            doGet('/motorsRear');
-        });
+    let motorsRear = document.getElementById('motorsRear');
+    motorsRear.addEventListener("click", function(event) {
+        doGet('/motorsRear');
+    });
 
-        let motorsDisable = document.getElementById('motorsDisable');
-        motorsDisable.addEventListener("click", function(event){
-            doGet('/motorsDisable');
-        });
+    let motorsDisable = document.getElementById('motorsDisable');
+    motorsDisable.addEventListener("click", function(event) {
+        doGet('/motorsDisable');
+    });
 
-        let motorLeftFront = document.getElementById('motorLeftFront');
-        motorLeftFront.addEventListener("click", function(event){
-            doGet('/motorLeftFront');
-        });
+    let motorLeftFront = document.getElementById('motorLeftFront');
+    motorLeftFront.addEventListener("click", function(event) {
+        doGet('/motorLeftFront');
+    });
 
-        let motorRightFront = document.getElementById('motorRightFront');
-        motorRightFront.addEventListener("click", function(event){
-            doGet('/motorRightFront');
-        });
+    let motorRightFront = document.getElementById('motorRightFront');
+    motorRightFront.addEventListener("click", function(event) {
+        doGet('/motorRightFront');
+    });
 
-        function doGet(url) {
-            console.log('doGet');
-            var request = new XMLHttpRequest();
-            request.open('GET', url, true);
-            request.send();
-        }
+    let motorLeftDisable = document.getElementById('motorLeftDisable');
+    motorLeftDisable.addEventListener("click", function(event) {
+        doGet('/motorLeftDisable');
+    });
+
+    let motorRightDisable = document.getElementById('motorRightDisable');
+    motorRightDisable.addEventListener("click", function(event) {
+        doGet('/motorRightDisable');
+    });
+
+    let motorLeftRear = document.getElementById('motorLeftRear');
+    motorLeftRear.addEventListener("click", function(event) {
+        doGet('/motorLeftRear');
+    });
+
+    let motorRightRear = document.getElementById('motorRightRear');
+    motorRightRear.addEventListener("click", function(event) {
+        doGet('/motorRightRear');
+    });
+
+    function doGet(url) {
+        console.log('doGet');
+        var request = new XMLHttpRequest();
+        request.open('GET', url, true);
+
+        request.onload = function() {
+            if (this.status >= 200 && this.status < 400) {
+                console.log('success');
+                var data = JSON.parse(this.response);
+            } else {
+                console.log('error');
+            }
+        };
+
+        request.onerror = function() {
+            console.log('error');
+        };
+
+        request.send();
+    }
     </script>
 </body>
 
