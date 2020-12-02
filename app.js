@@ -75,38 +75,47 @@ function motorLeftDisable() {
 
         app.get("/motorsFront", function(req, res) {
             motorsFront();
+            res.status(200).send("motorsFront");
         });
 
         app.get("/motorsRear", function(req, res) {
             motorsRear();
+            res.status(200).send("motorsRear");
         });
 
         app.get("/motorsDisable", function(req, res) {
             motorsDisable();
+            res.status(200).send("motorsDisable");
         });
 
         app.get("/motorRightFront", function(req, res) {
             motorRightFront();
+            res.status(200).send("motorRightFront");
         });
 
         app.get("/motorRightRear", function(req, res) {
             motorRightRear();
+            res.status(200).send("motorRightRear");
         });
 
         app.get("/motorRightDisable", function(req, res) {
             motorRightDisable();
+            res.status(200).send("motorRightDisable");
         });
 
         app.get("/motorLeftFront", function(req, res) {
             motorLeftFront();
+            res.status(200).send("motorLeftFront");
         });
 
         app.get("/motorLeftRear", function(req, res) {
             motorLeftRear();
+            res.status(200).send("motorLeftRear");
         });
 
         app.get("/motorLeftDisable", function(req, res) {
             motorLeftDisable();
+            res.status(200).send("motorLeftDisable");
         });
 
         app.use(express.static(__dirname + '/'));
