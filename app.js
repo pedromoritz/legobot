@@ -11,18 +11,21 @@ ON = 0;
 OFF = 1;
 
 function motorsFront() {
+    console.log('motorsFront');
     motorsDisable();
     rpio.open(MOTOR_RIGHT_FRONT, rpio.OUTPUT, ON);
     rpio.open(MOTOR_LEFT_FRONT, rpio.OUTPUT, ON);
 }
 
 function motorsRear() {
+    console.log('motorsRear');
     motorsDisable();
     rpio.open(MOTOR_RIGHT_REAR, rpio.OUTPUT, ON);
     rpio.open(MOTOR_LEFT_REAR, rpio.OUTPUT, ON);
 }
 
 function motorsDisable() {
+    console.log('motorsDisable');
     rpio.open(MOTOR_RIGHT_FRONT, rpio.OUTPUT, OFF);
     rpio.open(MOTOR_RIGHT_REAR, rpio.OUTPUT, OFF);
     rpio.open(MOTOR_LEFT_FRONT, rpio.OUTPUT, OFF);
