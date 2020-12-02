@@ -57,7 +57,7 @@ function motorLeftRear() {
     rpio.open(MOTOR_LEFT_REAR, rpio.OUTPUT, ON);
 }
 
-function disableMotorLeft() {
+function motorLeftDisable() {
     rpio.open(MOTOR_LEFT_FRONT, rpio.OUTPUT, OFF);
     rpio.open(MOTOR_LEFT_REAR, rpio.OUTPUT, OFF);
 }
