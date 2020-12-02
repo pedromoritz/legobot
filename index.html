@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    <hr>
     <br>
     <button type="button" id="motorsFront">Motores Frente</button>
     <br>
@@ -17,6 +18,11 @@
     <br>
     <button type="button" id="motorsDisable">Desliga Motores</button>
     <br>
+    <hr>
+    <br>
+    <button type="button" id="motorLeftFront">Motor Esquerda Frente</button>
+    <button type="button" id="motorRightFront">Motor Direita Frente</button>
+
     <script>
         let motorsFront = document.getElementById('motorsFront');
         motorsFront.addEventListener("click", function(event){
@@ -31,6 +37,16 @@
         let motorsDisable = document.getElementById('motorsDisable');
         motorsDisable.addEventListener("click", function(event){
             doGet('/motorsDisable');
+        });
+
+        let motorLeftFront = document.getElementById('motorLeftFront');
+        motorLeftFront.addEventListener("click", function(event){
+            doGet('/motorLeftFront');
+        });
+
+        let motorRightFront = document.getElementById('motorRightFront');
+        motorRightFront.addEventListener("click", function(event){
+            doGet('/motorRightFront');
         });
 
         function doGet(url) {
