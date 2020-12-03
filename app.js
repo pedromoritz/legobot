@@ -60,13 +60,13 @@ function motorLeftDisable() {
 }
 
 function motorsTurnRight() {
-    motorRightFront();
-    motorLeftRear();
+    motorLeftFront();
+    motorRightRear();
 }
 
 function motorsTurnLeft() {
-    motorLeftFront();
-    motorRightRear();
+    motorRightFront();
+    motorLeftRear();
 }
 
 (async () => {
