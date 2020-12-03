@@ -11,21 +11,18 @@ ON = 0;
 OFF = 1;
 
 function motorsFront() {
-    console.log('motorsFront');
     motorsDisable();
     rpio.open(MOTOR_RIGHT_FRONT, rpio.OUTPUT, ON);
     rpio.open(MOTOR_LEFT_FRONT, rpio.OUTPUT, ON);
 }
 
 function motorsRear() {
-    console.log('motorsRear');
     motorsDisable();
     rpio.open(MOTOR_RIGHT_REAR, rpio.OUTPUT, ON);
     rpio.open(MOTOR_LEFT_REAR, rpio.OUTPUT, ON);
 }
 
 function motorsDisable() {
-    console.log('motorsDisable');
     rpio.open(MOTOR_RIGHT_FRONT, rpio.OUTPUT, OFF);
     rpio.open(MOTOR_RIGHT_REAR, rpio.OUTPUT, OFF);
     rpio.open(MOTOR_LEFT_FRONT, rpio.OUTPUT, OFF);
@@ -60,6 +57,16 @@ function motorLeftRear() {
 function motorLeftDisable() {
     rpio.open(MOTOR_LEFT_FRONT, rpio.OUTPUT, OFF);
     rpio.open(MOTOR_LEFT_REAR, rpio.OUTPUT, OFF);
+}
+
+function motorsTurnRight() {
+    motorRightFront();
+    motorLeftRear();
+}
+
+function motorsTurnLeft() {
+    motorLeftFront();
+    motorRightRear();
 }
 
 (async () => {
@@ -116,6 +123,16 @@ function motorLeftDisable() {
         app.get("/motorLeftDisable", function(req, res) {
             motorLeftDisable();
             res.status(200).send("motorLeftDisable");
+        });
+
+        app.get("/motorsTurnRight", function(req, res) {
+            motorsTurnRight();
+            res.status(200).send("motorsTurnRight");
+        });
+
+        app.get("/motorsTurnLeft", function(req, res) {
+            motorsTurnLeft();
+            res.status(200).send("motorsTurnLeft");
         });
 
         app.use(express.static(__dirname + '/'));

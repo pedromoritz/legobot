@@ -5,31 +5,50 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LegoBot</title>
+    <style>
+    .button {
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        width: 30%;
+        display: inline-block;
+    }
+
+    .green {
+        background-color: #4CAF50;
+    }
+
+    .red {
+        background-color: #f44336;
+    }
+    </style>
 </head>
 
 <body>
-    <hr>
-    <br>
-    <button type="button" id="motorsFront">Motores Frente</button>
-    <br>
-    <br>
-    <button type="button" id="motorsRear">Motores Ré</button>
-    <br>
-    <br>
-    <button type="button" id="motorsDisable">Desliga Motores</button>
-    <br>
-    <hr>
-    <br>
-    <button type="button" id="motorLeftFront">Motor Esquerda Frente</button>
-    <button type="button" id="motorRightFront">Motor Direita Frente</button>
-    <br>
-    <br>
-    <button type="button" id="motorLeftDisable">Desliga Motor Esquerda</button>
-    <button type="button" id="motorRightDisable">Desliga Motor Direita</button>
-    <br>
-    <br>
-    <button type="button" id="motorLeftRear">Motor Esquerda Ré</button>
-    <button type="button" id="motorRightRear">Motor Direita Ré</button>
+    <div style="text-align: center;">
+        <hr>
+        <button type="button" class="button green" id="motorsTurnLeft">Esquerda</button>
+        <button type="button" class="button green" id="motorsFront">Frente</button>
+        <button type="button" class="button green" id="motorsTurnRight">Direita</button>
+        <br><br>
+        <button type="button" class="button green" id="motorsRear">Ré</button>
+        <br><br>
+        <button type="button" class="button red" id="motorsDisable">Desliga</button>
+        <br><hr>
+        <button type="button" class="button green" id="motorLeftFront">Esquerda Frente</button>
+        <button type="button" class="button green" id="motorRightFront">Direita Frente</button>
+        <br><br>
+        <button type="button" class="button green" id="motorLeftRear">Esquerda Ré</button>
+        <button type="button" class="button green" id="motorRightRear">Direita Ré</button>
+        <br><br>
+        <button type="button" class="button red" id="motorLeftDisable">Desliga Esquerda</button>
+        <button type="button" class="button red" id="motorRightDisable">Desliga Direita</button>
+        <hr>
+    </div>
     <script>
     let motorsFront = document.getElementById('motorsFront');
     motorsFront.addEventListener("click", function(event) {
@@ -74,6 +93,16 @@
     let motorRightRear = document.getElementById('motorRightRear');
     motorRightRear.addEventListener("click", function(event) {
         doGet('/motorRightRear');
+    });
+
+    let motorsTurnRight = document.getElementById('motorsTurnRight');
+    motorsTurnRight.addEventListener("click", function(event) {
+        doGet('/motorsTurnRight');
+    });
+
+    let motorsTurnLeft = document.getElementById('motorsTurnLeft');
+    motorsTurnLeft.addEventListener("click", function(event) {
+        doGet('/motorsTurnLeft');
     });
 
     function doGet(url) {
